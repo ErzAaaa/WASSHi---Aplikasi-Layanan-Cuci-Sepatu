@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'login_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,11 +12,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => LoginPage()),
-      );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 7), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const LoginPage()),
+        );
+      });
     });
   }
 
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color.fromARGB(255, 255, 255, 255), Color.fromARGB(255, 255, 255, 255)],
+            colors: [Color.fromARGB(255, 255, 255, 255), Color.fromARGB(255, 255, 255, 255)], // Gradien warna
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -36,12 +37,15 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset(
-                'assets/image/logo.svg',
-                color: const Color(0xFF3D60AC),
+              const SizedBox(height: 20),
+              // Logo aplikasi
+              Image.asset(
+                'assets/image/logo.png',
                 height: 120,
               ),
-              const Text( 
+              const SizedBox(height: 20),
+              // Nama aplikasi
+              const Text(
                 "Wash and Shine",
                 style: TextStyle(
                   color: Color(0xFF3D60AC),
@@ -51,8 +55,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   letterSpacing: 1.2,
                 ),
               ),
-
-             Row(
+              const SizedBox(height: 10),
+              // Copyright
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(
@@ -72,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

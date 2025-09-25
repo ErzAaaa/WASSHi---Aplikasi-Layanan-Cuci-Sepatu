@@ -51,7 +51,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: const SplashScreen(),
-        initialRoute: '/login',
         routes: {
           '/login': (context) => const LoginPage(),
           '/home': (context) => HomePage(username: ''), // Placeholder username

@@ -26,7 +26,7 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/image/logo.png
-  - assets/image/erza.id.png
-  - assets/image/logo.svg
-  - assets/image/logo2.png
+    - assets/image/logo.png
+    - assets/image/erza.id.png
+    - assets/image/logo.svg
+    - assets/image/logo2.png
